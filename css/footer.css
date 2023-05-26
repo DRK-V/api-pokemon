@@ -1,6 +1,7 @@
 #footer {
   height: 60px;
-  position: relative;
+  position: fixed;
+  bottom: 0;
   width: 100%;
   background-image: url("../img/8 sin título_20230512150422.png");
   background-size: cover;
@@ -16,6 +17,7 @@
   height: 100%;
   justify-content: flex-end;
 }
+
 
 @media (max-width: 767px) {
   #footer {
