@@ -1,23 +1,29 @@
 #footer {
-    height: 60px;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    background-image: url("../img/8\ sin\ título_20230512150422.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    z-index: 10;
+  height: 60px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-image: url("../img/8 sin título_20230512150422.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 10;
+}
 
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+@media (max-width: 767px) {
+  #footer {
+    position: relative;
   }
-  
-  .footer-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    justify-content: flex-end;
-  }
+}
+
   .footer-content img {
     width: 100px;
     height: 100px;
