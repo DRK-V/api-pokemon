@@ -199,7 +199,9 @@ body {
 }
 
 
-
+.logo{
+  position: relative;
+}
 
 
 .logo img {
