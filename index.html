@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/cardIn.css">
+    <link rel="stylesheet" href="./css/cardBb.css">
+    <link rel="stylesheet" href="./css/sidebar.CSS">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <body class="no-scroll" id="firstElement">
+        <div class="load">
+            <video loop autoplay muted>
+                <source src="img/load_1.webm" type="video/webm">
+            </video>
+        </div>
+        <div id="overlay">
+        </div>
+        <section id="main">
+            <div class="logo">
+                <img class="img1" src="../img/International_Pokémon_logo.svg.png" alt="">
+            </div>
+
+
+            <aside id="pokeball-aside">
+                <button id="close-button">
+                    <img src="https://img.icons8.com/material-outlined/24/000000/close-window.png" />
+                </button>
+                <img class="img1" src="./img/pokeball.gif" alt="">
+                <ul>
+                    <li><a href="#">inicio</a></li>
+                    <li><a href="#" data-generation="1">Generation I</a></li>
+                    <li><a href="#" data-generation="2">Generation II</a></li>
+                    <li><a href="#" data-generation="3">Generation III</a></li>
+                    <li><a href="#" data-generation="4">Generation IV</a></li>
+                    <li><a href="#" data-generation="5">Generation V</a></li>
+                    <li><a href="#" data-generation="6">Generation VI</a></li>
+                    <li><a href="#" data-generation="7">Generation VII</a></li>
+                    <li><a href="#" data-generation="8">Generation VIII</a></li>
+                </ul>
+            </aside>
+
+            <button id="pokeball-button"></button>
+            <div class="overlay"></div>
+            <div class="pokemon-container3">
+                <div class="pokemon-list"></div>
+                <button id="close-container-button">Cerrar</button>
+                <div class="pokemon-info-container"></div>
+            </div>
+
+
+
+
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Buscar...">
+                <button id="search-btn">Buscar</button>
+                <button id="generate-btn">Generar</button>
+            </div>
+            <div id="pokemon-info2"></div>
+            <div id="failedToLoad">
+            </div>
+            <!---->
+            <div id="container">
+                <div class="container-pokemon" id="listaPokemon">
+
+                </div>
+            </div>
+            <div id="pokemon-container2"></div>
+            <main id="main-overlay"></main>
+
+        </section>
+ <!---->
+ <footer id="footer">
+    <div class="footer-content">
+        <div class="img">
+            <a href="https://github.com/DRK-V" target="_blank">
+                <img src="./img/cd622b2ade5d109494890a61dbb22362-removebg-preview.png" alt="daniel" target="_blank" title="Visitar repositorio">
+            </a>
+        </div>
+        <div class="footer-icons">
+            <a href="enlace-de-Facebook" target="_blank" rel="noopener noreferrer" title="Visitar Facebook">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a href="enlace-de-GitHub" target="_blank" rel="noopener noreferrer" title="Visitar GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="enlace-de-Instagram" target="_blank" rel="noopener noreferrer" title="Visitar Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>     
+    </div>
+</footer>
+
+        <script src="./js/footer.js"></script>
+        <script src="./js/asidebar.JS"></script>
+        <script src="./js/barraN.js"></script>
+        <script src="./js/carga.js"></script>
+
+    </body>
+
+</html>
