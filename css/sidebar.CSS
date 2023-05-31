@@ -25,10 +25,10 @@
 
 @media only screen and (min-width: 768px) {
   #pokeball-button {
-      right: initial;
-      width: 105px;
-      height: 105px;
-      z-index: 9;
+    right: initial;
+    width: 105px;
+    height: 105px;
+    z-index: 9;
 
   }
 
@@ -36,11 +36,11 @@
 
 @media only screen and (max-width: 767px) {
   #pokeball-button {
-      right: 30px;
-      left: initial;
-      width: 60px;
-      height: 60px;
-      bottom: 86px;
+    right: 30px;
+    left: initial;
+    width: 60px;
+    height: 60px;
+    bottom: 86px;
   }
 }
 
@@ -56,7 +56,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: 300px;
-  z-index: 9;
+  z-index: 30;
 }
 
 #pokeball-aside.open {
@@ -120,36 +120,36 @@
 
 @media only screen and (max-width: 640px) {
   #pokeball-aside {
-      width: 300px;
+    width: 300px;
   }
 
   #pokeball-aside ul {
-      padding-top: 90px;
+    padding-top: 90px;
   }
 }
 
 @media only screen and (max-width: 480px) {
   #pokeball-button {
-      right: 20px;
-      left: initial;
-      width: 60px;
-      height: 60px;
-      bottom: 86px;
+    right: 20px;
+    left: initial;
+    width: 60px;
+    height: 60px;
+    bottom: 86px;
   }
 
   #pokeball-aside .img1 {
-      top: 50%;
-      left: 50%;
-      transform: translate(95%, 40%);
-      height: 95px;
+    top: 50%;
+    left: 50%;
+    transform: translate(95%, 40%);
+    height: 95px;
   }
 
   #pokeball-aside {
-      width: 300px;
+    width: 300px;
   }
 
   #pokeball-aside ul {
-      padding-top: 30px;
+    padding-top: 30px;
   }
 }
 
@@ -193,16 +193,16 @@
 .pokemon-list {
   margin-bottom: 20px;
   display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 3rem;
 }
 
 .pokemon-card {
   align-items: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  width: 300px;
+  width: 200px;
   background-color: aquamarine;
   margin: 0 1rem;
   display: flex;
@@ -245,9 +245,10 @@
 
 
 .pokemon-card .ico img {
-    height: 90px;
+  height: 90px;
 
 }
+
 .pokemon-imagen img {
   max-width: 100%;
   max-height: 100%;

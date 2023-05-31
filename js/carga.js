@@ -151,9 +151,8 @@ function showPokemonDetails(pokemonData) {
           </div>
         </div>
       </div>
-    <!-- Agrega más detalles según tus necesidades -->
 
-    <button onclick="closePokemonDetails()">Close</button>
+    <button id="closeBtn" class="sticky" onclick="closePokemonDetails()">Close</button>
   `;
 
   container.appendChild(pokemonDetails);
@@ -163,5 +162,7 @@ function closePokemonDetails() {
   const pokemonDetails = document.querySelector('.pokemon-details');
   container.removeChild(pokemonDetails);
 }
+
+
 
 fetchPokemonData();

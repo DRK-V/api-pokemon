@@ -71,7 +71,7 @@
   width: 60%;
   width: 90%;
   height: 90%;
-  background-image: url(../img/bg-poke.webp), linear-gradient(-90deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.7) 25%, rgba(247, 247, 247, 0.7) 50%, rgba(230, 230, 230, 0.7) 75%, rgba(255, 255, 255, 0.7) 100%);
+  background-color: #f7f7f7;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -134,9 +134,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 40%;
+  width: 35%;
   float: left;
-  margin: 15px;
+  margin: 10px;
 }
 
 .pokemon-img img {
@@ -219,7 +219,7 @@ img {
   width: 100%;
   font-weight: bold;
   font-size: 20px;
-  margin: 10% 0px 0px 0px;
+  margin: 5% 0px 0px 0px;
   color: #000;
 }
 

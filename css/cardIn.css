@@ -294,7 +294,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 9;
+  z-index: 15;
   width: 90%;
   height: 90%;
   background-color: #fff;
@@ -309,7 +309,6 @@ body {
 }
 
 .pokemon-details button {
-
   position: fixed;
   top: 20px;
   right: 20px;
@@ -319,8 +318,8 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-
 }
+
 
 @media screen and (max-width: 768px) {
   .pokemon-details {
