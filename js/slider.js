@@ -1,90 +1,72 @@
-// Elementos del DOM
-const sliderContainer = document.getElementById("slider-container");
-const prevBtn = document.getElementById("prevBtn");
-const nextBtn = document.getElementById("nextBtn");
+const sliderContainer = document.getElementById("slider-container"); // Obtener el contenedor del slider
+const prevBtn = document.getElementById("prevBtn"); // Obtener el botón de "anterior"
+const nextBtn = document.getElementById("nextBtn"); // Obtener el botón de "siguiente"
 
-// Lista de nombres de los Pokémon legendarios
 const legendaryPokemonList = [
-    "mewtwo",
-    "moltres",
-    "zapdos",
-    "articuno",
-    "celebi",
-    "lugia",
-    "ho-oh",
-    "suicune",
-    "entei",
-    "raikou",
-    "regirock",
-    "regice",
-    "registeel",
-    "latias",
-    "latios",
-    "kyogre",
-    "groudon",
-    "rayquaza",
-    "jirachi",
-    "deoxys",
-    "arceus",
-    "giratina",
-    "palkia",
-    "dialga"
-];
+  "mewtwo",
+  "moltres",
+  "zapdos",
+  "articuno",
+  "celebi",
+  "lugia",
+  "ho-oh",
+  "suicune",
+  "entei",
+  "raikou",
+  "regirock",
+  "regice",
+  "registeel",
+  "latias",
+  "latios",
+  "kyogre",
+  "groudon",
+  "rayquaza",
+  "jirachi",
+  "deoxys",
+  "arceus",
+  "giratina",
+  "palkia",
+  "dialga"
+]; // Lista de nombres de los Pokémon legendarios
 
-let currentIndex = 0;
-let slideInterval;
+let currentIndex = 0; // posision actual del Pokémon en el slider
 
-// Función para cargar un Pokémon en el slider
-async function loadSliderPokemon(index) {
-    const pokemonName = legendaryPokemonList[index];
-    const apiUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
+function loadSliderPokemon(index) {
+  const pokemonName = legendaryPokemonList[index]; // Obtener el nombre del Pokémon
+  const apiUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`; // URL de la API 
 
-    try {
-        const response = await fetch(apiUrl);
-        if (!response.ok) {
-            throw new Error("Failed to fetch Pokémon data");
-        }
-        const data = await response.json();
+  fetch(apiUrl) // Realizar una solicitud a la API de PokeAPI
+    .then(response => {
+      if (!response.ok) { // Si la respuesta no es exitosa
+        throw new Error("Error al obtener los datos de Pokémon"); // Lanzar un error
+      }
+      return response.json(); // Convertir la respuesta a formato JSON
+    })
+    .then(data => {
+      const spriteUrl = data.sprites.other["official-artwork"].front_default; // Obtener la URL de la imagen del Pokémon
 
-        const spriteUrl = data.sprites.other["official-artwork"].front_default;
+      const imgElement = document.createElement("img"); // Crear un elemento de imagen
+      imgElement.src = spriteUrl; // Establecer la URL de la imagen
+      imgElement.classList.add("slider-image"); // Agregar una clase a la imagen
+      sliderContainer.innerHTML = ""; // Limpiar el contenedor del slider
+      sliderContainer.appendChild(imgElement); // Agregar el elemento de imagen al contenedor
+    })
+    .catch(error => {
+      console.error(error); // Manejar cualquier error ocurrido 
+    });
+}
 
-        const imgElement = document.createElement("img");
-        imgElement.src = spriteUrl;
-        imgElement.classList.add("slider-image");
-        sliderContainer.innerHTML = "";
-        sliderContainer.appendChild(imgElement);
-    } catch (error) {
-        console.error(error);
-    }
+function showPreviousPokemon() {
+  currentIndex = (currentIndex - 1 + legendaryPokemonList.length) % legendaryPokemonList.length; //Pokémon anterior (manejando el bucle circular)
+  loadSliderPokemon(currentIndex); // Cargar el Pokémon anterior en el slider
 }
 
 function showNextPokemon() {
-    currentIndex++;
-    if (currentIndex >= legendaryPokemonList.length) {
-        currentIndex = 0;
-    }
-    loadSliderPokemon(currentIndex);
+  currentIndex = (currentIndex + 1) % legendaryPokemonList.length; //Pokémon siguiente (manejando el bucle circular)
+  loadSliderPokemon(currentIndex); // Cargar el Pokémon siguiente en el slider
 }
 
-function startSlideInterval() {
-    slideInterval = setInterval(showNextPokemon, 3000);
-}
+prevBtn.addEventListener("click", showPreviousPokemon); //  clic en el botón "anterior"
+nextBtn.addEventListener("click", showNextPokemon); //  clic en el botón "siguiente"
 
-
-function stopSlideInterval() {
-    clearInterval(slideInterval);
-}
-
-prevBtn.addEventListener("click", () => {
-    stopSlideInterval();
-    showPreviousPokemon();
-});
-nextBtn.addEventListener("click", () => {
-    stopSlideInterval();
-    showNextPokemon();
-});
-
-
-loadSliderPokemon(0);
-
-startSlideInterval();
+loadSliderPokemon(currentIndex); // Cargar el primer Pokémon en el slider al cargar la página

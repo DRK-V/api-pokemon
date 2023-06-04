@@ -56,7 +56,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: 300px;
-  z-index: 30;
+  z-index: 9;
 }
 
 #pokeball-aside.open {
@@ -174,9 +174,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 80%;
-  height: 80vh;
-  max-height: 80%;
+  width: 100%;
+  height: 100%;
   background-color: #fff;
   padding: 20px;
   border-radius: 5px;
@@ -202,7 +201,7 @@
 .pokemon-card {
   align-items: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  width: 200px;
+  width: 300px;
   background-color: aquamarine;
   margin: 0 1rem;
   display: flex;

@@ -1,18 +1,17 @@
 document.addEventListener('DOMContentLoaded', function () {
   // elementos
-  var searchInput = document.getElementById('search-input');
-  var searchButton = document.getElementById('search-btn');
-  var generateButton = document.getElementById('generate-btn');
-  var pokemonContainer = document.getElementById('pokemon-container2');
-  var mainOverlay = document.getElementById('main-overlay');
+  var searchInput = document.getElementById('search-input'); // Input de búsqueda
+  var searchButton = document.getElementById('search-btn'); // Botón de búsqueda
+  var generateButton = document.getElementById('generate-btn'); // Botón de generación aleatoria
+  var pokemonContainer = document.getElementById('pokemon-container2'); // Contenedor del Pokémon
+  var mainOverlay = document.getElementById('main-overlay'); // Capa de superposición
 
-  pokemonContainer.style.display = 'none';
-
+  pokemonContainer.style.display = 'none'; // Oculta el contenedor del Pokémon al cargar la página
 
   function showPokemon(pokemonData) {
-    var pokemonName = pokemonData.name;
-    var pokemonNumber = pokemonData.id;
-    var pokemonImageUrl = pokemonData.sprites.other['official-artwork'].front_default;
+    var pokemonName = pokemonData.name; // Nombre del Pokémon
+    var pokemonNumber = pokemonData.id; // Número del Pokémon en la Pokédex
+    var pokemonImageUrl = pokemonData.sprites.other['official-artwork'].front_default; // URL de la imagen del Pokémon
 
     var html = `
       <div class='name'>${pokemonName}</div>
@@ -54,91 +53,70 @@ document.addEventListener('DOMContentLoaded', function () {
       <button id="close-btn">Cerrar</button>
     `;
 
-    pokemonContainer.innerHTML = html;
-    pokemonContainer.style.display = 'block';
-    mainOverlay.style.display = 'block';
+    pokemonContainer.innerHTML = html; // Inserta el contenido HTML del Pokémon en el contenedor
+    pokemonContainer.style.display = 'block'; // Muestra el contenedor del Pokémon
+    mainOverlay.style.display = 'block'; // Muestra la capa de superposición
   }
-
 
   function hidePokemonContainer() {
-    pokemonContainer.style.display = 'none';
-    mainOverlay.style.display = 'none';
+    pokemonContainer.style.display = 'none'; // Oculta el contenedor del Pokémon
+    mainOverlay.style.display = 'none'; // Oculta la capa de superposición
   }
 
-
   function searchPokemon() {
-    var searchTerm = searchInput.value.toLowerCase();
+    var searchTerm = searchInput.value.toLowerCase(); // búsqueda ingresada
+    var apiUrl = 'https://pokeapi.co/api/v2/pokemon/' + searchTerm; // URL de la API
 
-
-    var isPokedexNumber = /^\d+$/.test(searchTerm);
-
-
-    var apiUrl;
-    if (isPokedexNumber) {
-      apiUrl = 'https://pokeapi.co/api/v2/pokemon/' + searchTerm;
-    } else {
-      apiUrl = 'https://pokeapi.co/api/v2/pokemon/' + searchTerm;
-    }
-
-
-    hidePokemonContainer();
-
+    hidePokemonContainer(); // Oculta el contenedor del Pokémon
 
     fetch(apiUrl)
       .then(function (response) {
         if (!response.ok) {
-          throw new Error('No se encontró ningún Pokémon con ese término de búsqueda.');
+          throw new Error('No se encontró ningún Pokémon con ese término de búsqueda.'); // Si la respuesta no es exitosa, lanza un error
         }
         return response.json();
       })
       .then(function (data) {
-        showPokemon(data);
+        showPokemon(data); // Muestra los datos del Pokémon obtenidos
       })
       .catch(function (error) {
-        alert(error.message);
+        alert(error.message); // Muestra un mensaje de error en caso de que ocurra algún problema durante la búsqueda
       });
   }
-
 
   searchInput.addEventListener('keydown', function (event) {
     if (event.keyCode === 13) {
-      searchPokemon();
-      event.preventDefault();
+      searchPokemon(); // Si se presiona la tecla Enter en el input de búsqueda, realiza la búsqueda del Pokémon
+      event.preventDefault(); // Evita el comportamiento predeterminado del Enter (enviar el formulario)
     }
   });
 
-
-  searchButton.addEventListener('click', searchPokemon);
+  searchButton.addEventListener('click', searchPokemon); // Al hacer clic en el botón de búsqueda, realiza la búsqueda del Pokémon
 
   generateButton.addEventListener('click', function () {
+    var randomPokemonId = Math.floor(Math.random() * 898) + 1; // Genera un número aleatorio para el ID del Pokémon
+    var apiUrl = 'https://pokeapi.co/api/v2/pokemon/' + randomPokemonId; // URL de la API para obtener los datos del Pokémon aleatorio
 
-    var randomPokemonId = Math.floor(Math.random() * 898) + 1;
-
-
-    var apiUrl = 'https://pokeapi.co/api/v2/pokemon/' + randomPokemonId;
-
-    hidePokemonContainer();
-
+    hidePokemonContainer(); // Oculta el contenedor del Pokémon
 
     fetch(apiUrl)
       .then(function (response) {
         if (!response.ok) {
-          throw new Error('No se pudo generar un Pokémon aleatorio.');
+          throw new Error('No se pudo generar un Pokémon aleatorio.'); // Si la respuesta no es exitosa, lanza un error
         }
         return response.json();
       })
       .then(function (data) {
-        showPokemon(data);
+        showPokemon(data); // Muestra los datos del Pokémon aleatorio obtenidos
       })
       .catch(function (error) {
-        alert(error.message);
+        alert(error.message); // Muestra un mensaje de error en caso de que ocurra algún problema durante la generación aleatoria
       });
   });
 
-
   pokemonContainer.addEventListener('click', function (event) {
     if (event.target.id === 'close-btn') {
-      hidePokemonContainer();
+      hidePokemonContainer(); // Al hacer clic en el botón de cierre, oculta el contenedor del Pokémon
     }
   });
 });

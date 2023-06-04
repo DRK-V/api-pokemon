@@ -7,21 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/cardIn.css">
     <link rel="stylesheet" href="./css/slider.css">
-    <link rel="stylesheet" href="./css/cardBb.css">
+    <link rel="stylesheet" href="./css/barraB.css">
     <link rel="stylesheet" href="./css/sidebar.CSS">
     <link rel="stylesheet" href="./css/footer.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-    <title>Document</title>
+    <title>pokedex</title>
 </head>
 
 <body>
-
+    <!--animacion de carga de pagina-->
     <div class="load">
         <video loop autoplay muted>
             <source src="img/load_1.webm" type="video/webm">
         </video>
     </div>
+    <!--fin animacion de carga de pagina-->
+
+    <!--logo y barra de busqueda-->
     <div id="overlay">
     </div>
     <section id="main">
@@ -31,7 +34,55 @@
                 alt="">
         </div>
 
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Buscar...">
+            <button id="search-btn">Buscar</button>
+            <button id="generate-btn">Generar</button>
+        </div>
+        <!--container innformacion de pokemon barra de busqueda-->
+        <div id="pokemon-container2"></div>
+        <main id="main-overlay"></main>
+         <!--fin logo y barra de busqueda-->
 
+        <!--slider-->
+        <div class="slider">
+            <div id="slider-container" class="slider-container"></div>
+            <div id="prevBtn" class="slider-btn">
+                < </div>
+                    <div id="nextBtn" class="slider-btn"> > </div>
+            </div>
+        </div>
+        <!--fin slider-->
+
+        <!--container targeta pokemon inicio-->
+        <div id="container">
+            <div class="container-pokemon" id="listaPokemon">
+<!--
+    
+     <div class="electric1"></div>
+        <div class="ico">
+          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" alt="bulbasaur">
+        </div>
+        <div class="pokemon-imagen">
+          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" alt="bulbasaur">
+        </div>
+        <div class="pokemon-info">
+          <div class="nombre-contenedor">
+            <p class="pokemon-id">#001</p>
+            <h2 class="pokemon-nombre">bulbasaur</h2>
+          </div>
+          <div class="pokemon-tipos">
+           <p class="grass">GRASS</p>
+          </div>
+        </div>
+-->
+            </div>
+        </div>
+        
+        <main id="main-overlay"></main>
+        <!--fin container targeta pokemon inicio-->
+
+        <!--comienzo sidebar-->
         <aside id="pokeball-aside">
             <button id="close-button">
                 <img src="https://img.icons8.com/material-outlined/24/000000/close-window.png" />
@@ -50,48 +101,22 @@
         </aside>
 
         <button id="pokeball-button"></button>
+        <!--fin comienzo sidebar-->
 
-
+        <!--comienzo container pokemon de aidebar generaciones-->
         <div class="overlay">
 
         </div>
         <div class="pokemon-container3">
             <div class="pokemon-list"></div>
             <button id="close-container-button">Cerrar</button>
+
             <div class="pokemon-info-container"></div>
         </div>
-
-
-
-
-        <div class="search-bar">
-            <input type="text" id="search-input" placeholder="Buscar...">
-            <button id="search-btn">Buscar</button>
-            <button id="generate-btn">Generar</button>
-        </div>
-        <div id="pokemon-info2"></div>
-        <div id="failedToLoad">
-        </div>
-
-
-        <div class="slider">
-            <div id="slider-container" class="slider-container"></div>
-            <div id="prevBtn" class="slider-btn">
-                < </div>
-                    <div id="nextBtn" class="slider-btn"> > </div>
-            </div>
-        </div>
-        <!---->
-        <div id="container">
-            <div class="container-pokemon" id="listaPokemon">
-
-            </div>
-        </div>
-        <div id="pokemon-container2"></div>
-        <main id="main-overlay"></main>
-
+        <!--fin container pokemon de asidebar generqciones-->
     </section>
-    <!---->
+
+ <!--footer-->
     <footer id="footer">
         <div class="footer-content">
             <div class="img">
@@ -113,8 +138,10 @@
             </div>
         </div>
     </footer>
+    <!--fin footer-->
 
-    <script src="./js/footer.js"></script>
+    <script src="./js/botones.js"></script>
+    <script src="./js/anim_in.js"></script>
     <script src="./js/asidebar.JS"></script>
     <script src="./js/barraN.js"></script>
     <script src="./js/carga.js"></script>
